@@ -6,6 +6,8 @@
   <title>Filipino Wedding Traditions</title>
 
   <style>
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -15,82 +17,128 @@
     }
 
     .container {
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto;
-      padding: 24px 18px 60px;
+      padding: 22px 18px 70px;
     }
 
     h1 {
       text-align: center;
-      font-size: 1.9rem;
-      margin-bottom: 10px;
+      font-size: 1.85rem;
+      margin: 6px 0 10px;
+      letter-spacing: 0.2px;
     }
 
     .intro {
       text-align: center;
       color: #555;
-      margin-bottom: 28px;
+      margin: 0 auto 18px;
+      max-width: 42ch;
+      font-size: 1rem;
     }
 
-    /* Anchor menu */
+    /* Anchor chips */
     .anchors {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       justify-content: center;
-      margin-bottom: 36px;
+      margin: 18px 0 26px;
     }
 
     .anchors a {
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       padding: 8px 14px;
-      border-radius: 20px;
+      border-radius: 999px;
       background: #f2f2f2;
       color: #333;
+      border: 1px solid #eee;
     }
 
-    .anchors a:hover {
-      background: #e6e6e6;
+    .anchors a:active {
+      transform: translateY(1px);
     }
 
-    /* Tradition sections */
+    /* Sections */
     .card {
-      margin-bottom: 32px;
+      margin: 0 0 28px;
+      padding: 0 0 24px;
+      border-bottom: 1px solid #efefef;
+    }
+
+    .card:last-of-type {
+      border-bottom: none;
+      padding-bottom: 10px;
+      margin-bottom: 0;
     }
 
     .card img {
       width: 100%;
-      border-radius: 14px;
-      margin-bottom: 6px;
+      height: auto;
+      display: block;
+      border-radius: 16px;
+      margin: 0 0 8px;  /* TIGHTENED image → text */
     }
 
     h2 {
-      font-size: 1.35rem;
-      margin-bottom: 6px 0 4px;
+      font-size: 1.34rem;
+      margin: 6px 0 4px; /* TIGHTENED title spacing */
+      letter-spacing: 0.1px;
     }
 
     p {
       margin: 0;
-      font-size: 1rem;
+      font-size: 1.02rem;
+      color: #333;
     }
 
-    /* Back to top */
-    .top {
-      text-align: center;
-      margin-top: 40px;
+    /* Make anchors land nicely below the sticky browser UI */
+    .card { scroll-margin-top: 14px; }
+
+    /* Floating Back to Top button */
+    .toTop {
+      position: fixed;
+      right: 14px;
+      bottom: 14px;
+      z-index: 50;
     }
 
-    .top a {
+    .toTop a {
       text-decoration: none;
-      font-size: 0.95rem;
-      color: #555;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(242, 242, 242, 0.92);
+      border: 1px solid #e9e9e9;
+      color: #333;
+      font-size: 0.92rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      backdrop-filter: blur(6px);
+    }
+
+    .toTop a:active {
+      transform: translateY(1px);
+    }
+
+    /* Slightly nicer desktop layout */
+    @media (min-width: 700px) {
+      .container {
+        padding: 28px 22px 80px;
+      }
+      h1 { font-size: 2.05rem; }
+      .intro { font-size: 1.05rem; }
+      p { font-size: 1.05rem; }
+      .card img { border-radius: 18px; margin-bottom: 10px; }
+      h2 { font-size: 1.45rem; margin-top: 8px; }
+      .card { margin-bottom: 30px; padding-bottom: 26px; }
     }
   </style>
 </head>
 
 <body id="top">
-
   <div class="container">
     <h1>Filipino Wedding Traditions</h1>
 
@@ -99,7 +147,6 @@
       and the couple’s lifelong commitment to one another.
     </p>
 
-    <!-- Anchor Navigation -->
     <div class="anchors">
       <a href="#veil">Veil</a>
       <a href="#cord">Cord</a>
@@ -108,7 +155,6 @@
       <a href="#money">Money Dance</a>
     </div>
 
-    <!-- VEIL -->
     <div class="card" id="veil">
       <img src="veil.png" alt="The Veil Ceremony">
       <h2>The Veil</h2>
@@ -118,7 +164,6 @@
       </p>
     </div>
 
-    <!-- CORD -->
     <div class="card" id="cord">
       <img src="cord.png" alt="The Cord Ceremony">
       <h2>The Cord</h2>
@@ -128,7 +173,6 @@
       </p>
     </div>
 
-    <!-- CANDLES -->
     <div class="card" id="candles">
       <img src="candles.png" alt="Wedding Candles Ceremony">
       <h2>The Candles</h2>
@@ -138,7 +182,6 @@
       </p>
     </div>
 
-    <!-- ARRAS -->
     <div class="card" id="arras">
       <img src="arras.png" alt="Arras Coins Ceremony">
       <h2>The Arras (Coins)</h2>
@@ -148,7 +191,6 @@
       </p>
     </div>
 
-    <!-- MONEY DANCE -->
     <div class="card" id="money">
       <img src="money-dance.png" alt="Money Dance Tradition">
       <h2>The Money Dance</h2>
@@ -157,13 +199,10 @@
         good fortune, abundance, and happiness in their married life.
       </p>
     </div>
+  </div>
 
-    <!-- Back to top -->
-    <div class="top">
-      <a href="#top">↑ Back to Top</a>
-    </div>
-
+  <div class="toTop">
+    <a href="#top" aria-label="Back to top">↑ Top</a>
   </div>
 </body>
 </html>
-
